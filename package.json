@@ -1,0 +1,19 @@
+{
+  "name": "commentsonbfs",
+  "version": "1.0.0",
+  "description": "Poem in the form of comments on Breadth First Search algorithm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimboweb/CommentsOnBfs.git"
+  },
+  "author": "Jim Stewart",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jimboweb/CommentsOnBfs/issues"
+  },
+  "homepage": "https://github.com/jimboweb/CommentsOnBfs#readme"
+}
