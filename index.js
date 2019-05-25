@@ -44,22 +44,18 @@ Out by Avenue U or Willets Point? */
  * @constructor
  */
 function BreadthFirstSearch(theMap, start, finish){
-    let explored = new Array(theMap.length);
-    explored.fill(false);
-    let queue = [];
-    queue.push(start);
-    explored[start] = true;
-    let previousStops = new Array(theMap.length);
+    let queue = [start];
+    let parents = new Array(theMap.length);
+    parents[start]=-1;
     while(queue.length>0){
         let current = queue.shift();
         for(let node of theMap[current]){
-            if(!explored[node]){
-                previousStops[node]=current;
-                queue.push(node)
-                theMap[node].beenThere = true;
-            }
-            if(node===finish){
-                return previousStops;
+            if(parents[node]===undefined){
+                parents[node]=current;
+                queue.push(node);
+                if(node===finish){
+                    return parents;
+                }
             }
         }
     }
@@ -68,7 +64,7 @@ function BreadthFirstSearch(theMap, start, finish){
 
 function traceBack(previousStops,end,start){
     let next = end;
-    let path = []
+    let path = [];
     path.unshift(next);
     do{
         next = previousStops[next];
@@ -101,7 +97,6 @@ function DrawTheMap(input){
 }
 
 let g = DrawTheMap(input);
-console.log(g)
 let start = 0;
 let end = 3;
 let parents = BreadthFirstSearch(g,start,end);
