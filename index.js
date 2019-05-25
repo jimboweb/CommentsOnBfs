@@ -44,7 +44,9 @@ Out by Avenue U or Willets Point? */
  * @constructor
  */
 function BreadthFirstSearch(theMap, start, finish){
-    // Start here. Start
+    // This poem would like permission
+    // to use your location.
+    //     Allow        Block
     // where you start. Add it to the list. Remember
     let queue = [start];
     //  where you were before. Before you were here
