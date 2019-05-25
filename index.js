@@ -51,7 +51,7 @@ function BreadthFirstSearch(theMap, start, finish){
     let queue = [start];
     //  where you were before. Before you began
     let parents = new Array(theMap.length);
-    // you were nowhere.
+    // defined for convenience. 
     parents[start]=-1;
     while(queue.length>0){
         let current = queue.shift();
