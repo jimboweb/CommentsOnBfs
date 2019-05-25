@@ -45,9 +45,9 @@ Out by Avenue U or Willets Point? */
  */
 function BreadthFirstSearch(theMap, start, finish){
     // Start here. Start
-    // where you start. Add it to the list.
+    // where you start. Add it to the list. Remember
     let queue = [start];
-    // Remember where you were before. Before you were here
+    //  where you were before. Before you were here
     let parents = new Array(theMap.length);
     // you were nowhere.
     parents[start]=-1;
