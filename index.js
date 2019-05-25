@@ -45,11 +45,11 @@ Out by Avenue U or Willets Point? */
  */
 function BreadthFirstSearch(theMap, start, finish){
     // This poem would like permission
-    // to use your location.
-    //     Allow        Block
-    // where you start. Add it to the list. Remember
+    // to use your location. The price
+    // of always knowing where you are. Allow?
+    // Block? Add it to the list. Remember
     let queue = [start];
-    //  where you were before. Before you were here
+    //  where you were before. Before you began
     let parents = new Array(theMap.length);
     // you were nowhere.
     parents[start]=-1;
