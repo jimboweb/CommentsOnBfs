@@ -8,67 +8,15 @@ But who'd read it that wasn't going there?
 They walked right by it, looking for dessert.
 */
 
-/**
- * They talked about the cronut lines, how
- * you can get them anywhere now. Van Halen, he said,
- * Sold out a show in Albuquerque in an hour.
- * She ordered a new iPhone online, it was easy.
- * And still they line up in front of the store.
- */
-class FirstComeFirstServed{
-    /**
-     * Odd that every line starts empty.
-     * To be the first.
-     */
-    constructor(){
-        //the IDE says this can be simplified,
-        //but it's easier to read this way
-        this.queue = new Array();
-    }
 
-    /**
-     * They found a place for lunch. Fifteen
-     * minute wait. But everywhere else was more crowded.
-     * @param stander
-     */
-    takeANumber(stander){
-        this.queue.push(stander);
-    }
-
-    /**
-     * We'll get our table eventually, right?
-     * @returns the people who got here after us, knowing our luck.
-     */
-    neeext(){
-        return this.queue.shift();
-    }
-
-    /**
-     * If we keep asking the hostess will get annoyed.
-     * Just be patient.
-     * @returns way more than we were hoping for
-     */
-    howManyNow(){
-        return this.queue.length;
-    }
-
-    /**
-     * And it ends empty too.
-     * @returns the line is finished or it's not.
-     */
-    isThatIt(){
-        return this.howManyNow()===0;
-    }
-}
 
 /*The first step is always to make a model
 The hard part isn't knowing things
 But choosing the things you won't know
 */
 class Station {
-    constructor(index, nextStops){
+    constructor(nextStops){
         this.nextStops = nextStops;
-        this.beenThere = false;
     }
 }
 
@@ -96,16 +44,18 @@ Even for free rose.*/
  * @constructor
  */
 function BreadthFirstSearch(theMap, start, finish){
-    let firstComeFirstServed = new FirstComeFirstServed();
-    firstComeFirstServed.takeANumber(start);
-    theMap[start].beenThere = true;
+    let explored = new Array(theMap.length);
+    explored.fill(false);
+    let firstComeFirstServed = [];
+    firstComeFirstServed.push(start);
+    explored[start] = true;
     let previousStops = new Array(theMap.length);
-    while(!firstComeFirstServed.isThatIt()){
-        let current = firstComeFirstServed.neeext();
+    while(firstComeFirstServed.length>0){
+        let current = firstComeFirstServed.shift();
         for(let station of theMap[current].nextStops){
-            if(!theMap[station].beenThere){
+            if(!explored[station]){
                 previousStops[station]=current;
-                firstComeFirstServed.takeANumber(station)
+                firstComeFirstServed.push(station)
                 theMap[station].beenThere = true;
             }
             if(station===finish){
