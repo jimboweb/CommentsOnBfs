@@ -1,38 +1,6 @@
 
 
-/*Of course Bowling Green was always in the same place
-You take that for granted
-When Pelham Parkway was in Queens once morning
-They taped a poster to the white tile
-But who'd read it that wasn't going there?
-They walked right by it, looking for dessert.
-*/
 
-
-
-/*The first step is always to make a model
-The hard part isn't knowing things
-But choosing the things you won't know
-*/
-
-
-/*She was annoyed and a little embarrassed
-Texting her place was at the end of the F tonight
-The 4 train was more reliable
-But who can afford a neighborhood
-That never moves? */
-
-
-
-/*When 79th street found itself at king's highway
-Well, for one thing the book party was ruined
-No one's riding out there
-Even for free rose.*/
-
-/*That's when we knew something had to be done
-What if the Museum of Natural History
-Ended up in Kew Gardens? City Hall
-Out by Avenue U or Willets Point? */
 
 /**
  * Let's think of the stations we can get to in one stop,
@@ -40,7 +8,7 @@ Out by Avenue U or Willets Point? */
  * @param theMap changes every day, every minute, before your eyes, or we wouldn't need this
  * @param start so we're here
  * @param finish and we need to get there
- * @returns not the path, but a tree, one stop to the next, nd what came before
+ * @returns not the path, but a tree, one stop to the next, and what came before
  * @constructor
  */
 function BreadthFirstSearch(theMap, start, finish){
@@ -79,8 +47,7 @@ function BreadthFirstSearch(theMap, start, finish){
                 // how long it's been.
                 parents[node]=current;
                 // it's like every step is the parent
-                // of the next. Every child knows nothing
-                // but what led to it.
+                // of the next.
                 queue.push(node);
                 if(node===finish){
                     // then you're there. Wherever you
@@ -98,21 +65,34 @@ function BreadthFirstSearch(theMap, start, finish){
    throw "no path found";
 }
 
+/**
+ * Take me back. Every step. Forget the dead ends.
+ * Just the shortest path.
+ * @param previousStops every child knows nothing but what led to it.
+ * @param end We put his first, because we're going backward.
+ * @param start seems so long ago, doesn't it?
+ * @returns {Array} This is what you were looking for, the way. But it's too late you already did it.
+ */
 function traceBack(previousStops,end,start){
     let next = end;
+    // A stack is like a pile of Metro papers, the first one down
+    // the first one they take.
     let path = [];
+    // Other languages would say 'pop'. In others, remembering the stop
+    // and forgetting it are two different operations. When memory
+    // is important. So much I forgot.
     path.unshift(next);
     do{
+        // We do it this way to run one last time
+        // when we're back to the beginning,
+        // so we remember that too.
         next = previousStops[next];
+        // It's sloppy we had to do this before the loop.
         path.unshift(next);
     } while (next!==start);
     return path;
 }
 
-function findPath(graph, start, end){
-    let parents = BreadthFirstSearch(graph,start,end);
-    return traceBack(parents, end, start);
-}
 
 
 
