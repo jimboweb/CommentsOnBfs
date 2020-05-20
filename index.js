@@ -63,25 +63,38 @@ function BreadthFirstSearch(theMap, start, finish){
     // had the veggie patties sometimes. To Coney Island,
     // the jellyfish in uv light and the seals.
     while(queue.length>0){
-        //
+        // Think of a line, like you're getting into PS1
+        // where Jeff danced in the fountain while we sipped
+        // wine and IPAs. It's just a fancy British word
+        // for the same thing. When you leave the museum
         let current = queue.shift();
         // Reach what you can touch.
         for(let node of theMap[current]){
             // Now I had a Boolean array here,
             // but if you know where you came from
-            // you've been there. If I walk down 3rd St.,
-            // it's like Tribes is still there. The Odeon,
-            // I can find for you no matter
-            // how long it's been.
             if(parents[node]===undefined){
+                // you've been there. If I walk down 3rd St.,
+                // it's like Tribes is still there. The Odeon,
+                // I can find for you no matter
+                // how long it's been.
                 parents[node]=current;
+                // it's like every step is the parent
+                // of the next. Every child knows nothing
+                // but what led to it.
                 queue.push(node);
                 if(node===finish){
+                    // then you're there. Wherever you
+                    // were supposed to go, the red pin where
+                    // the interview, new apartment your lover
+                    // and a cocktail. This is important,
+                    // give back every step that got you there.
                     return parents;
                 }
             }
         }
     }
+   // It can happen. Nothing returns. They all started out
+   // with bad directions.
    throw "no path found";
 }
 
