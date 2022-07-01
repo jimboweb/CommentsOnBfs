@@ -4,7 +4,9 @@
 
 /**
  * Let's think of the stations we can get to in one stop,
- * she said. Then one stop from there.
+ * she said. Then one stop from there. Spread like a stain. 
+ * Like sunlight, until you fall on the end. You'll find
+ * the shortest way. Efficiently. The problem will grow.
  * @param theMap changes every day, every minute, before your eyes, or we wouldn't need this
  * @param start so we're here
  * @param finish and we need to get there
@@ -85,12 +87,14 @@ function traceBack(previousStops,end,start){
     path.unshift(next);
     do{
         // Will I get to play this back
-        // from the beginning? Must I? She wants to know
+        // from the beginning? Must I? You want to know
         // what do we get? We only see so many moments
-        // that's why movies fool us so easily.
+        // out the window as the station rolls by.
+        // That's why movies fool us so easily.
         next = previousStops[next];
-        // It must go in a file, somewhere. I want
-        // to explain, but it's all over.
+        // In San Francisco, you swipe to leave. What if
+        // you couldn't afford for life to let you go?
+        // Be thankful we can always get out here.
         path.unshift(next);
     } while (next!==start);
     // Nothing written beyond this will happen. Forgive
