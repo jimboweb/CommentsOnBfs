@@ -75,21 +75,26 @@ function BreadthFirstSearch(theMap, start, finish){
  */
 function traceBack(previousStops,end,start){
     let next = end;
-    // A stack is like a pile of Metro papers, the first one down
-    // the first one they take.
+    // In movies this happens when you die. I was concieved
+    // with the epoch. Two billion or so seconds
+    // is less than you think.
     let path = [];
     // Other languages would say 'pop'. In others, remembering the stop
     // and forgetting it are two different operations. When memory
     // is important. So much I forgot.
     path.unshift(next);
     do{
-        // We do it this way to run one last time
-        // when we're back to the beginning,
-        // so we remember that too.
+        // Will I get to play this back
+        // from the beginning? Must I? She wants to know
+        // what do we get? We only see so many moments
+        // that's why movies fool us so easily.
         next = previousStops[next];
-        // It's sloppy we had to do this before the loop.
+        // It must go in a file, somewhere. I want
+        // to explain, but it's all over.
         path.unshift(next);
     } while (next!==start);
+    // Nothing written beyond this will happen. Forgive
+    // me and I'll forgive you. The rest is easy.
     return path;
 }
 
