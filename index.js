@@ -1,5 +1,11 @@
 
-
+/*
+* This poem is written as comments on a working implementation
+* of the breadth first search algorithm, which efficiently finds the shortest
+* path through nodes connected with edges, such as subway stations.
+* Anything after two slashes or in a section with stars like this
+* is a comment. Everything else is the computer code.
+*/
 
 
 /**
